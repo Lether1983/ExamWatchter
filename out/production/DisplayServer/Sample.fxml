@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.paint.*?>
+<?import java.lang.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ServerController">
+    <children>
+        <MenuBar>
+            <menus>
+                <Menu mnemonicParsing="false" text="Menu">
+                    <items>
+                        <MenuItem mnemonicParsing="false" text="Close" />
+                    </items>
+                </Menu>
+                <Menu mnemonicParsing="false" text="Help">
+                    <items>
+                        <MenuItem mnemonicParsing="false" text="About" />
+                  <SeparatorMenuItem mnemonicParsing="false" />
+                  <MenuItem mnemonicParsing="false" text="Tutorial" />
+                    </items>
+                </Menu>
+            </menus>
+        </MenuBar>
+      <SplitPane dividerPositions="0.5" prefHeight="100.0" prefWidth="200.0">
+        <items>
+              <HBox fillHeight="false" spacing="5.0">
+                  <children>
+                      <Button mnemonicParsing="false" onAction="#StartServer" prefHeight="100.0" prefWidth="100.0" text="Start Server" />
+                      <Button mnemonicParsing="false" onAction="#ShowAll" prefHeight="100.0" prefWidth="100.0" text="All" />
+                      <Button mnemonicParsing="false" onAction="#DisplaySingleUser" prefHeight="100.0" prefWidth="100.0" text="Single" />
+                      <Button mnemonicParsing="false" onAction="#InvokeExamFinish" prefHeight="100.0" prefWidth="100.0" text="Finish" />
+                  </children>
+                  <padding>
+                      <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                  </padding>
+              </HBox>
+            <Circle fx:id="OnlineStatus" fill="#9a1d1d" radius="50.0" stroke="BLACK" strokeType="INSIDE" />
+        </items>
+      </SplitPane>
+        <SplitPane dividerPositions="0.5" VBox.vgrow="ALWAYS">
+            <items>
+                <ListView fx:id="UserListView" maxWidth="200" minWidth="200" />
+                <ScrollPane fitToHeight="true" fitToWidth="true">
+                   <content>
+                       <TilePane fx:id="UserTileView" tileAlignment="TOP_LEFT" />
+                   </content>
+                </ScrollPane>
+            </items>
+        </SplitPane>
+    </children>
+</VBox>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.canvas.Canvas?>
+<?import javafx.scene.control.TitledPane?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<TitledPane fx:id="title" animated="false" maxHeight="250" maxWidth="250" minHeight="250" minWidth="250" text="New User" xmlns="http://javafx.com/javafx/8.0.76-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ClientViewController">
+   <content>
+      <AnchorPane>
+         <children>
+            <Canvas fx:id="screen" height="150.0" layoutX="21.0" layoutY="37.0" width="250.0" />
+         </children>
+      </AnchorPane>
+   </content>
+</TitledPane>

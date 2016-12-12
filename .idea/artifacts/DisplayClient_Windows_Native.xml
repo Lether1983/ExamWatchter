@@ -1,0 +1,22 @@
+<component name="ArtifactManager">
+  <artifact type="javafx" name="DisplayClient Windows Native">
+    <output-path>$PROJECT_DIR$/out/artifacts/DisplayClient_Windows_Native</output-path>
+    <properties id="javafx-properties">
+      <options>
+        <option name="appClass" value="App" />
+        <option name="description" value="" />
+        <option name="htmlPlaceholderId" value="" />
+        <option name="nativeBundle" value="exe" />
+        <option name="title" value="Exam Client" />
+        <option name="vendor" value="SAE" />
+        <option name="version" value="1.0" />
+      </options>
+    </properties>
+    <root id="root">
+      <element id="archive" name="DisplayClient.jar">
+        <element id="module-output" name="DisplayClient" />
+        <element id="module-output" name="Common" />
+      </element>
+    </root>
+  </artifact>
+</component>
