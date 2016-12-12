@@ -31,10 +31,8 @@ public class ClientController
         {
             Socket socket = new Socket(serverAddress.getText(), 24404);
             client = new Client(socket, App.cancellationToken);
-            client.setName(Username.getText());
             screenCaptureThread = new ScreenCaptureThread(client, App.cancellationToken);
             client.start();
-            client.WriteMessage(new UserMessage(client.getName()));
             screenCaptureThread.start();
             ConnectButton.setDisable(true);
         }
