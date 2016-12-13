@@ -1,6 +1,8 @@
 import javafx.application.Platform;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -43,6 +45,9 @@ public class ServerController implements Initializable
                 {
                     UserTileView.getChildren().add(FXMLLoader.load(getClass().getResource("ClientView.fxml"), null, new JavaFXBuilderFactory(), param ->
                     {
+                        ObservableList<String> items = FXCollections.observableArrayList();
+                        items.add(client.name);
+                        UserListView.setItems(items);
                         return new ClientViewController(client);
                     }));
                     client.start();
