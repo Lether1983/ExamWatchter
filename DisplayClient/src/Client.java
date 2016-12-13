@@ -9,7 +9,6 @@ public class Client extends GenericClient
     public Client(Socket socket, CancellationToken cancellationToken,String name) throws IOException
     {
         super(socket, cancellationToken);
-        WriteMessage(new UserMessage(name));
     }
 
     @Override
