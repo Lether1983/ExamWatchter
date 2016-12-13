@@ -20,13 +20,12 @@ public class ClientViewController
     private Canvas screen;
     private final Client client;
 
+
     public ClientViewController(final Client client)
     {
         this.client = client;
-        this.client.updateUIHandler = () ->
-        {
-            title.setText(client.name);
-        };
+        this.client.updateUIHandler = () -> Platform.runLater(() -> title.setText(client.name));
+
         this.client.screenMessageHandler = message ->
         {
             BufferedImage bi = new BufferedImage(

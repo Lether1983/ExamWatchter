@@ -47,8 +47,8 @@ public abstract class GenericClient extends Thread
 
     public final void WriteMessage(Message message) throws IOException
     {
-        new Thread(() ->
-        {
+        //new Thread(() ->
+        //{
             try
             {
                 objectOutputStream.writeObject(message);
@@ -57,7 +57,7 @@ public abstract class GenericClient extends Thread
             {
                 e.printStackTrace();
             }
-        }).start();
+        //}).start();
     }
 
     protected abstract void handleMessage(Message message, Class messageClass);

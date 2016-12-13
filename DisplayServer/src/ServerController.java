@@ -41,7 +41,6 @@ public class ServerController implements Initializable
             {
                 try
                 {
-
                     UserTileView.getChildren().add(FXMLLoader.load(getClass().getResource("ClientView.fxml"), null, new JavaFXBuilderFactory(), param ->
                     {
                         return new ClientViewController(client);
