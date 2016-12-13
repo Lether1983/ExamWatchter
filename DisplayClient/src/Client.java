@@ -1,3 +1,4 @@
+import java.io.IOException;
 import java.net.Socket;
 
 /**
@@ -5,9 +6,10 @@ import java.net.Socket;
  */
 public class Client extends GenericClient
 {
-    public Client(Socket socket, CancellationToken cancellationToken)
+    public Client(Socket socket, CancellationToken cancellationToken,String name) throws IOException
     {
         super(socket, cancellationToken);
+        WriteMessage(new UserMessage(name));
     }
 
     @Override

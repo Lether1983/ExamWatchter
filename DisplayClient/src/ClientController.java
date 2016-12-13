@@ -30,7 +30,7 @@ public class ClientController
         try
         {
             Socket socket = new Socket(serverAddress.getText(), 24404);
-            client = new Client(socket, App.cancellationToken);
+            client = new Client(socket, App.cancellationToken,Username.getText());
             screenCaptureThread = new ScreenCaptureThread(client, App.cancellationToken);
             client.start();
             screenCaptureThread.start();
