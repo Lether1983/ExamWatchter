@@ -1,5 +1,6 @@
 import java.io.*;
 import java.net.*;
+import java.util.List;
 import java.util.zip.GZIPInputStream;
 import java.util.zip.GZIPOutputStream;
 
@@ -11,6 +12,7 @@ public class Client extends GenericClient
     public String name;
     public ScreenMessageHandler screenMessageHandler;
     public UpdateUIHandler updateUIHandler;
+    public UpdateUIHandler updateUiHandler2;
     public ConnectionClosedHandler connectionClosedHandler;
 
     public Client(Socket socket, CancellationToken cancellationToken)
@@ -25,6 +27,7 @@ public class Client extends GenericClient
         {
             name = ((UserMessage) message).Name;
             updateUIHandler.Handle();
+            updateUiHandler2.Handle();
         }
         else if (messageClass == ScreenMessage.class)
         {

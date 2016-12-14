@@ -1,6 +1,4 @@
 import javafx.application.Platform;
-import javafx.beans.value.ChangeListener;
-import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -8,15 +6,12 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.fxml.JavaFXBuilderFactory;
-import javafx.scene.Node;
 import javafx.scene.control.ListView;
 import javafx.scene.layout.TilePane;
 import javafx.scene.paint.Paint;
 import javafx.scene.shape.Circle;
-import javafx.util.Callback;
 
 import java.io.IOException;
-import java.net.Socket;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -27,7 +22,7 @@ public class ServerController implements Initializable
 {
     private Server server;
     @FXML
-    private ListView UserListView;
+    private ListView<String> UserListView;
     @FXML
     private TilePane UserTileView;
     @FXML
@@ -35,9 +30,11 @@ public class ServerController implements Initializable
 
     public ServerController() throws IOException
     {
+        ObservableList<String> items = FXCollections.observableArrayList();
         server = new Server();
         server.clientConnect = socket ->
         {
+
             Client client = new Client(socket, App.cancellationToken);
             Platform.runLater(() ->
             {
@@ -45,10 +42,7 @@ public class ServerController implements Initializable
                 {
                     UserTileView.getChildren().add(FXMLLoader.load(getClass().getResource("ClientView.fxml"), null, new JavaFXBuilderFactory(), param ->
                     {
-                        ObservableList<String> items = FXCollections.observableArrayList();
-                        items.add(client.name);
-                        UserListView.setItems(items);
-                        return new ClientViewController(client);
+                        return new ClientViewController(client,items,UserListView);
                     }));
                     client.start();
                 }
@@ -56,6 +50,7 @@ public class ServerController implements Initializable
                 {
                     e.printStackTrace();
                 }
+
             });
         };
     }

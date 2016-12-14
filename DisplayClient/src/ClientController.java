@@ -34,7 +34,7 @@ public class ClientController
             screenCaptureThread = new ScreenCaptureThread(client, App.cancellationToken);
             client.start();
             screenCaptureThread.start();
-            ConnectButton.setDisable(true);
+            //ConnectButton.setDisable(true);
         }
         catch (IOException e)
         {

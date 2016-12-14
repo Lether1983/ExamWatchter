@@ -1,8 +1,11 @@
 import javafx.application.Platform;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.embed.swing.SwingFXUtils;
 import javafx.fxml.FXML;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
+import javafx.scene.control.ListView;
 import javafx.scene.control.TitledPane;
 import javafx.scene.layout.Pane;
 
@@ -21,10 +24,15 @@ public class ClientViewController
     private final Client client;
 
 
-    public ClientViewController(final Client client)
+    public ClientViewController(final Client client ,ObservableList<String> items,ListView<String> UserListView)
     {
+       ;
         this.client = client;
-        this.client.updateUIHandler = () -> Platform.runLater(() -> title.setText(client.name));
+        this.client.updateUIHandler =  () -> Platform.runLater(() -> title.setText(client.name));
+        this.client.updateUiHandler2 =  () -> Platform.runLater(()-> items.add(client.name));
+
+
+        UserListView.setItems(items);
 
         this.client.screenMessageHandler = message ->
         {
